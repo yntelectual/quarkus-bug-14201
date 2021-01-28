@@ -1,0 +1,12 @@
+truncate table samplingorder cascade ;
+truncate table customer cascade ;
+truncate table user_in_role cascade ;
+truncate table appuser cascade ;
+truncate table role cascade ;
+start TRANSACTION ;
+insert into appuser (id, email) values (1, 'foo@bar.com');
+insert into role (id, name) values  (1, 'admin');
+insert into user_in_role (userid, roleid) values (1, 1);
+insert into customer (id, version, user_id) values (1,  1, 1);
+insert into samplingorder (id, note, customerid) values (1, 'asdasd', 1);
+commit;
